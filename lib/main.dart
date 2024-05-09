@@ -18,11 +18,12 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Colors.white,
         textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
           bodyMedium: GoogleFonts.poppins(textStyle: textTheme.bodyMedium),
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+
+
       ),
       initialRoute: RouterPath.initialRoute,
       onGenerateRoute:materialPageRoute,

@@ -4,7 +4,7 @@ class Product {
   final String size;
   final String color;
   final double price;
-  final int quantity;
+  int quantity;
 
   Product({
     required this.name,

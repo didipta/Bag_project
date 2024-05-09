@@ -19,7 +19,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.white,
+
         textTheme: GoogleFonts.latoTextTheme(textTheme).copyWith(
+
           bodyMedium: GoogleFonts.poppins(textStyle: textTheme.bodyMedium),
         ),
 

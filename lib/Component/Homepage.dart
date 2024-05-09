@@ -1,7 +1,9 @@
 import 'package:bag_project/Component/Productlist/ProductList.dart';
+import 'package:bag_project/Router/RouterPath.dart';
 import 'package:bag_project/fackData/Products.dart';
 import 'package:bag_project/fackData/data.dart';
 import 'package:bag_project/style/style.dart';
+import 'package:bag_project/utils/Commonfuctions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +19,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     void addtocart(Product product){
-      addProducts.add(product);
+      addtocartf(product,context);
       setState(() {});
 
 
@@ -41,7 +43,9 @@ class _HomepageState extends State<Homepage> {
             child: Stack(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, RouterPath.checkout);
+                  },
                   icon: Icon(Icons.shopping_basket_rounded, color: Colors.pinkAccent),
                 ),
                 Positioned(

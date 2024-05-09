@@ -7,7 +7,8 @@ import '../../fackData/Products.dart';
 
 class ProductList extends StatelessWidget {
   final List<Product> products;
-  const ProductList({Key? key, required this.products}) : super(key: key);
+  final addtocart;
+  const ProductList({Key? key, required this.products, this.addtocart}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,10 @@ class ProductList extends StatelessWidget {
           name: products[index].name,
           imageUrl:products[index].imageUrl ,
           price:products[index].price ,
-          onAddToCart:(){} ,
+          onAddToCart:(){
+            addtocart(products[index]);
+
+          } ,
         )
       ),
 

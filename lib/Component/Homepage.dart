@@ -1,4 +1,5 @@
 import 'package:bag_project/Component/Productlist/ProductList.dart';
+import 'package:bag_project/fackData/Products.dart';
 import 'package:bag_project/fackData/data.dart';
 import 'package:bag_project/style/style.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,31 +16,36 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
+    void addtocart(Product product){
+      addProducts.add(product);
+      setState(() {});
 
+
+    }
     return Scaffold(
       appBar: AppBar(
-
-
         title: Text("My-Commerce", style: TextSize(context),),
         backgroundColor: Colors.white,
         titleSpacing: 30,
         elevation: 0,
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: IconButton(onPressed: (){}, icon:Icon(Icons.search,color:Colors.black, ),),
+          Container(
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.search, color: Colors.black),
+            ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 15),
+          Container(
+            width: 50,
+            margin: EdgeInsets.only(left: 8,right:10,top: 5),
             child: Stack(
-
               children: [
                 IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.shopping_basket_rounded, color: Colors.pinkAccent),
-                  ),
+                  onPressed: () {},
+                  icon: Icon(Icons.shopping_basket_rounded, color: Colors.pinkAccent),
+                ),
                 Positioned(
-                  right: 0,
+                  right: 5,
                   top: 1,
                   child: Container(
                     padding: EdgeInsets.all(4),
@@ -58,12 +64,15 @@ class _HomepageState extends State<Homepage> {
                 ),
               ],
             ),
-          ),
+          )
+
+
+
 
         ],
 
       ),
-    body: ProductList(products: products,),
+    body: ProductList(products: products,addtocart:addtocart),
     );
   }
 }

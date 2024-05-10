@@ -1,7 +1,11 @@
+import 'package:bag_project/Component/Productlist/AddcartItem.dart';
+import 'package:bag_project/fackData/Products.dart';
 import 'package:bag_project/fackData/data.dart';
 import 'package:bag_project/style/style.dart';
+import 'package:bag_project/utils/Commonfuctions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_grid_list/responsive_grid_list.dart';
 
 class Addtocart extends StatefulWidget {
   const Addtocart({Key? key}) : super(key: key);
@@ -13,6 +17,17 @@ class Addtocart extends StatefulWidget {
 class _AddtocartState extends State<Addtocart> {
   @override
   Widget build(BuildContext context) {
+    void addquaintity(Product product){
+
+      quaintyadd(product);
+      setState(() {});
+    }
+    void removequaintity(Product product){
+
+      quaintyremove(product);
+      setState(() {});
+    }
+    var width=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar:AppBar(
         leading:IconButton(
@@ -38,31 +53,97 @@ class _AddtocartState extends State<Addtocart> {
     body:Center(
       child: Container(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("My Bag"),
-            Expanded(
-              child: ListView.builder(
-                itemCount: addProducts.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    child: Row(
-                      children: [
-                        Image.network(
-                          addProducts[index].imageUrl,
-                          fit: BoxFit.cover,
-                          width: 120,
-                          height: 100,
+            Container(
+              padding: EdgeInsets.only(left: 25,top:30,bottom: 15),
+             child: Text("My Bag",style: TextStyle(
+               fontSize: 22,
+               color: Colors.black87,
+               fontWeight: FontWeight.bold,
+             ),),
+            ),
+          Expanded(child:addProducts.length==0?Container(
+            padding: EdgeInsets.only(left: 25,top:30,bottom: 15),
+            child: Text("No item Add to Cart",style: TextStyle(
+              fontSize: 16,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),),
+          ): ResponsiveGridList(
+            verticalGridSpacing: 10,
+            horizontalGridSpacing: 10,
+            horizontalGridMargin: 20,
+            verticalGridMargin: 10,
+            minItemsPerRow: 1,
+            maxItemsPerRow: 2,
+            minItemWidth: width < 650 ? width : 500,
+            children: List.generate(
+                addProducts.length,
+                    (index) => Addcartitem(addProducts: addProducts[index],addquaintity:addquaintity,removequaintitys:removequaintity,)
+            ),
 
-                        ),
-                      ],
+
+          ),),
+      Center(
+        child: Container(
+          width: width <675 ? width:600,
+          padding: const EdgeInsets.all(40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child:  Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Total price:",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
-                  );
-                },
+                  ),
+                  SizedBox(height: 50,),
+                  Text(
+                    // Calculate total price here
+                    totalPrice().toString()+"\$", // Placeholder, replace with actual total price
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight:FontWeight.bold
+                    ),
+                  ),
+                ],
               ),
             ),
-            Text("Total price")
+
+          // Checkout button
+            SizedBox(
+
+              height: 50,
+              child: ElevatedButton(
+
+                onPressed: (){},
+
+                style:buttonStyle(),
+                child:Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.check_circle_outline,size: 20), // Add your icon here
+                    SizedBox(width: 8), // Add some spacing between icon and text
+                    Text('CHECK OUT'), // Add your text here
+                  ],
+                ),
+              ),
+            ),
           ],
+    ),
         ),
+      ),
+      ]
+
+    ),
       ),
     ) ,
 

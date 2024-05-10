@@ -21,8 +21,6 @@ class _HomepageState extends State<Homepage> {
     void addtocart(Product product){
       addtocartf(product,context);
       setState(() {});
-
-
     }
     return Scaffold(
       appBar: AppBar(

@@ -35,6 +35,6 @@ borderRadius: BorderRadius.circular(8), // Button border radius
 ),
 ),
 
-padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 16, vertical: 18)), // Button padding
+padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 16, vertical: 10)), // Button padding
 );
 }

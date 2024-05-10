@@ -13,10 +13,12 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveGridList(
-        horizontalGridMargin: 10,
+      verticalGridSpacing: 8,
+      horizontalGridSpacing: 8,
+        horizontalGridMargin: 20,
         verticalGridMargin: 20,
         minItemsPerRow: 1,
-        minItemWidth: 200,
+        minItemWidth: 210,
         children: List.generate(
         products.length,
         (index) => Productcard(

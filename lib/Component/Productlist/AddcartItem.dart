@@ -14,7 +14,7 @@ class Addcartitem extends StatelessWidget {
   Widget build(BuildContext context) {
     var width=MediaQuery.of(context).size.width;
     return Container(
-      height: width >410?135:300, // Set the height of the container
+      height: width >430?150:300, // Set the height of the container
       width: double.infinity, // Set the width to take up all available space
       child: Card(
         shadowColor: Colors.blueGrey.withOpacity(0.3),
@@ -23,7 +23,7 @@ class Addcartitem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
 
         ),
-        child: width >410?
+        child: width >430?
         Row(
           children:childen(addProducts,addquaintity,removequaintitys,width),
         )
@@ -45,8 +45,8 @@ return  [
     child: Image.network(
       addProducts.imageUrl,
       fit: BoxFit.cover,
-      width:width >410?120: double.infinity,
-      height: 135,
+      width:width >430?120: double.infinity,
+      height: 150,
     ),
   ),
 
@@ -67,7 +67,7 @@ return  [
                   Text(
                     addProducts.name,
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,
@@ -79,11 +79,11 @@ return  [
                       Row(
                         children: [
                           Text("COLOR : ", style: TextStyle(
-                              fontSize: 11,
+                              fontSize: 13,
                               color: Colors.grey
                           ),),
                           Text(addProducts.color, style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 12,
                               color: Colors.black87,
                               fontWeight: FontWeight.w900
 
@@ -94,11 +94,11 @@ return  [
                       Row(
                         children: [
                           Text("SIZE : ", style: TextStyle(
-                              fontSize: 11,
+                              fontSize: 13,
                               color: Colors.grey
                           )),
                           Text(addProducts.size, style: TextStyle(
-                              fontSize: 10,
+                              fontSize: 12,
                               color: Colors.black87,
                               fontWeight: FontWeight.w900
                           ))
@@ -118,7 +118,7 @@ return  [
               ),
             ],
           ),
-          SizedBox(height: 12,),
+          SizedBox(height: 8,),
           // Add and Remove Buttons
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,7 +187,8 @@ return  [
                       fontWeight: FontWeight.w900
                   ))
             ],
-          )
+          ),
+          SizedBox(height: 2,)
         ],
       ),
     ),

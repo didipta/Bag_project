@@ -19,12 +19,17 @@ class _AddtocartState extends State<Addtocart> {
   Widget build(BuildContext context) {
     void addquaintity(Product product){
 
-      quaintyadd(product);
+      quaintyadd(product,context);
       setState(() {});
     }
     void removequaintity(Product product){
 
       quaintyremove(product);
+      setState(() {});
+    }
+
+    void checkouts(){
+      checkout(context);
       setState(() {});
     }
     var width=MediaQuery.of(context).size.width;
@@ -99,10 +104,11 @@ class _AddtocartState extends State<Addtocart> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Total price:",
+                    "Total amount:",
                     style: TextStyle(
                       fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                   SizedBox(height: 50,),
@@ -124,7 +130,10 @@ class _AddtocartState extends State<Addtocart> {
               height: 50,
               child: ElevatedButton(
 
-                onPressed: (){},
+
+                onPressed: addProducts.length==0?null:(){
+                  checkouts();
+                },
 
                 style:buttonStyle(),
                 child:Row(

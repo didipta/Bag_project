@@ -61,21 +61,23 @@ class _AddtocartState extends State<Addtocart> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 25,top:30,bottom: 15),
-             child: Text("My Bag",style: TextStyle(
+              padding: EdgeInsets.only(left: 25,top:20,bottom: 15),
+             child: Text("👜 My Bag",style: TextStyle(
                fontSize: 22,
                color: Colors.black87,
                fontWeight: FontWeight.bold,
              ),),
             ),
-          Expanded(child:addProducts.length==0?Container(
+          Expanded(child:addProducts.length==0?
+          Container(
             padding: EdgeInsets.only(left: 25,top:30,bottom: 15),
             child: Text("No item Add to Cart",style: TextStyle(
               fontSize: 16,
               color: Colors.red,
               fontWeight: FontWeight.bold,
             ),),
-          ): ResponsiveGridList(
+          ):
+          ResponsiveGridList(
             verticalGridSpacing: 10,
             horizontalGridSpacing: 10,
             horizontalGridMargin: 20,
@@ -93,7 +95,7 @@ class _AddtocartState extends State<Addtocart> {
       Center(
         child: Container(
           width: width <675 ? width:600,
-          padding: const EdgeInsets.all(40.0),
+          padding: const EdgeInsets.only(bottom: 30,top: 10,left: 40,right: 40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,7 +113,7 @@ class _AddtocartState extends State<Addtocart> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(height: 50,),
+                  SizedBox(height: 30,),
                   Text(
                     // Calculate total price here
                     totalPrice().toString()+"\$", // Placeholder, replace with actual total price
